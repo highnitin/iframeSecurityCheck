@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="./src/output.css" rel="stylesheet"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+  <title>Website Checker</title>
+  <style>
+    /* Additional styles can be added here */
+  </style>
+</head>
+
+<body class="bg-gray-200">
+    <header class="bg-blue-500 p-4 text-white">
+      <div class="container mx-auto flex items-center justify-between">
+        <div>
+          <h1 class="text-xl font-semibold">Website Checker</h1>
+        </div>
+        <div class="flex">
+          <input type="text" id="websiteInput" placeholder="Enter website URL" class="p-2 rounded-l-md border-none">
+          <!-- <input type="text" id="headerInput" placeholder="Type something" class="p-2 border-none"> -->
+          <button id="checkButton" class="bg-blue-700 text-white p-2 rounded-r-md">Check</button>
+
+        </div>
+      </div>
+    </header>
+  
+    <main class="h-screen">
+      <div class="container mx-auto h-full flex items-center justify-center">
+        <iframe id="websiteFrame" class="border border-gray-400 w-full h-full" frameborder="0"></iframe>
+      </div>
+    </main>
+  
+    <script>
+      const websiteInput = document.getElementById('websiteInput');
+      //   const headerInput = document.getElementById('headerInput');
+      const websiteFrame = document.getElementById('websiteFrame');
+      
+      websiteInput.addEventListener('input', () => {
+          console.log('Input in website input box:', websiteInput.value);
+        });
+        
+       
+      //   headerInput.addEventListener('input', () => {
+          //     console.log('Input in header input box:', headerInput.value);
+          //   });
+          
+          const checkButton = document.getElementById('checkButton');
+          
+          checkButton.addEventListener('click', () => {
+      const websiteURL = websiteInput.value;
+      websiteFrame.src = websiteURL;
+    });
+              // Add event listener to the iframe content when it is loaded
+              
+              websiteFrame.addEventListener('DOMContentLoaded', 
+              
+              setTimeout(() =>{
+                  const iframeInput = document.querySelector("#hero-email");
+          iframeInput.addEventListener('input', () => {
+            console.log('Input in website input box:', iframeInput.value);
+          });
+            }, 5000)
+              )
+
+
+
+
+            //   websiteFrame.addEventListener('click', () => {
+            //     console.log('From Website Frame:');
+            //   });
+  
+      websiteFrame.addEventListener('mouseenter', () => {
+        console.log('Hovering over the iframe');
+        // Additional actions for hover can be added here
+      });
+    </script>
+  </body>
+
+</html>
